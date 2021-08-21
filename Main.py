@@ -59,7 +59,7 @@ def navigate_to_next_results_page():
         # --- Looks for link element
         link_elements = driver.find_elements_by_css_selector("a[href*=a]")
 
-        for link in link_elements
+        for link_element in link_elements
             # --- Retrieves URL from element
             link_url = link_element.get_attribute('href')
 
