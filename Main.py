@@ -46,22 +46,24 @@ def type_search_keyword():
 
 def open_links_on_new_tabs():
     try:
-        # --- Looks for link elements
-        links = driver.find_elements_by_css_selector("a[href*=a]")
-        # --- Transform them into URLs
-        link_urls = [link.get_attribute('href') for link in links]
+        for keyword in keywords: 
+            # --- Looks for link elements
+            keyword_links = driver.find_elements_by_css_selector("a[href*={}]".format(keyword))
+            # --- Transform them into URLs
+            link_urls = [link.get_attribute('href') for link in links]
+                print(link_urls)
 
         # --- For every link URL, do
-        for link_url in link_urls:
-            # print("✅ Found link: ", link_url)
+        # for link_url in link_urls:
+        #     # print("✅ Found link: ", link_url)
 
-            # --- Checks it agaisn't every keyword
-            for keyword in keywords: 
-                # print("✅ Checking for {} on {}".format(keyword, link_url))
+        #     # --- Checks it agaisn't every keyword
+        #     for keyword in keywords: 
+        #         # print("✅ Checking for {} on {}".format(keyword, link_url))
                 
-                # --- In case the URL has the keywords
-                if keyword in link_url:
-                    print("✅ Found URL:", link_url)
+        #         # --- In case the URL has the keywords
+        #         if keyword in link_url:
+        #             print("✅ Found URL:", link_url)
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
