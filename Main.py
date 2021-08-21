@@ -45,8 +45,9 @@ def type_search_keyword():
 
 def open_links_on_new_tabs():
     try:
-        # --- Looks for link element
+        # --- Looks for link elements
         links = driver.find_elements_by_css_selector("a[href*=a]")
+        # --- Transform them into URLs
         hrefs = [link.get_attribute('href') for link in links]
 
         # --- For every link element, do
