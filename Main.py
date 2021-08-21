@@ -13,6 +13,11 @@ import os
 driver = webdriver.Firefox()
 links=["leopq", "leonardoquevedox", "pacleo"]
 
+def handle_exception(e, message): 
+    driver.quit()
+    print(message)
+    print(e)
+
 def navigate_to_google():
     # Navigates into google main page
     driver.get('https://google.com')
@@ -35,8 +40,7 @@ def type_search_keyword():
         print("✅ Submitted the search form.")
 
     except Exception as e:
-        print("💥 Whoops! There was an error executing the search step!")
-        print(e)
+        handle_exception(e, "💥 Whoops! There was an error executing the search step!")
 
 def open_links_on_new_tabs():
     try:
@@ -48,8 +52,7 @@ def open_links_on_new_tabs():
         # --- Waits for 5 seconds
         time.sleep(5)
     except Exception as e:
-        print("💥 Whoops! There was an error executing the link opening step!")
-        print(e)
+        handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
 
 def main():
     # --- Navigates into Google page
@@ -60,7 +63,5 @@ def main():
     time.sleep(2)
     # --- Open expected links
     open_links_on_new_tabs()
-    # --- Closes the browser windows
-    driver.quit()
 
 main()
