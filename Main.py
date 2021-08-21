@@ -88,7 +88,7 @@ def main():
         # --- Open expected links
         open_links_on_new_tabs()
         # --- Waits for 2 seconds
-        time.sleep(2)
+        time.sleep(10)
         # --- Switch to next results page
         navigate_to_next_results_page()
 
