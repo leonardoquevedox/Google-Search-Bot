@@ -74,7 +74,7 @@ def navigate_to_next_results_page():
         print("✅ Clicked the next page link")
 
     except Exception as e:
-        handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
+        handle_exception(e, "💥 Whoops! There was an error executing the navgation to next page step!")
 
 def main():
     # --- Navigates into Google page
