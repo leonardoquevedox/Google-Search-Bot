@@ -41,7 +41,7 @@ def type_search_keyword():
 def open_links_on_new_tabs():
     try:
         # --- Looks for provided links
-        link = driver.find_element_by_xpath("//a[contains(text(),'leopq')]")
+        link = driver.find_element_by_css_selector("//a[src*='leopq']")
         # --- Link 
         print(link)
     except Exception as e:
