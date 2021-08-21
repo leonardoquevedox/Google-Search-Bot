@@ -88,6 +88,6 @@ def main():
         # --- Switch to next results page
         navigate_to_next_results_page()
         # --- Prints separator line
-        print("\n")
+        # print("\n")
 
 main()
