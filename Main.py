@@ -52,8 +52,7 @@ def open_links_on_new_tabs():
         for link_element in link_elements:
             # --- Retrieves URL from element
             link_url = link_element.get_attribute('href')
-            print("\n")
-
+            # print("\n")
             # print("✅ Found link: ", link_url)
 
             # --- Checks it agaisn't every keyword
