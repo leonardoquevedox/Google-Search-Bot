@@ -35,14 +35,18 @@ def type_search_keyword():
         print("Submitted the search form.")
 
     except Exception as e:
-        print("💥 Whoops! There was an failure executing the search step!")
+        print("💥 Whoops! There was an error executing the search step!")
         print(e)
 
 def open_links_on_new_tabs():
-    # --- Looks for provided links
-    link = driver.find_element_by_xpath("//a[contains(text(),'leopq')]")
-    # --- Link 
-    print(link)
+    try:
+        # --- Looks for provided links
+        link = driver.find_element_by_xpath("//a[contains(text(),'leopq')]")
+        # --- Link 
+        print(link)
+    except Exception as e:
+        print("💥 Whoops! There was an error executing the link opening step!")
+        print(e)
 
 def main():
     # --- Navigates into Google page
@@ -51,5 +55,7 @@ def main():
     type_search_keyword()
     # --- Waits for 5 seconds
     time.sleep(5)
+    # --- Open expected links
+    open_links_on_new_tabs()
 
 main()
