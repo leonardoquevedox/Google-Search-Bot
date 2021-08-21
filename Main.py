@@ -11,7 +11,7 @@ import os
 
 # Initializes Gecko driver
 driver = webdriver.Firefox()
-links=["leopq", "leonardoquevedox", "pacleo"]
+keywords=["leopq", "leonardoquevedox", "pacleo"]
 
 def handle_exception(e, message): 
     driver.quit()
@@ -51,8 +51,11 @@ def open_links_on_new_tabs():
             # --- Retrieves URL from element
             link_url = link_element.get_attribute('href')
 
-            print(link_url)
-        
+            for keyword in keywords: 
+                # --- In case the URL has the keywords
+                if link_url:
+                    print(link_url)
+
         # --- Waits for 5 seconds
         time.sleep(5)
 
@@ -61,7 +64,7 @@ def open_links_on_new_tabs():
 
 def navigate_to_next_results_page():
     try:
-        print("Finding ")
+        print("Finding next page link")
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
