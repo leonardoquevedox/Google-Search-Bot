@@ -46,11 +46,11 @@ def open_links_on_new_tabs():
     try:
         # --- Looks for link element
         link_element = driver.find_element_by_css_selector("a[href*=a]")
+
         # --- Retrieves URL from element
         link_url = link_element.get_attribute('href')
         print(link_url)
-        # --- Waits for 5 seconds
-        time.sleep(5)
+
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
 
@@ -60,7 +60,9 @@ def navigate_to_next_results_page():
         link_element = driver.find_element_by_css_selector("a[href*=a]")
         # --- Retrieves URL from element
         link_url = link_element.get_attribute('href')
+
         print(link_url)
+        
         # --- Waits for 5 seconds
         time.sleep(5)
     except Exception as e:
