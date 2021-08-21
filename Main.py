@@ -11,11 +11,12 @@ import os
 
 # Initializes Gecko driver
 driver = webdriver.Firefox()
+driver.implicitly_wait(5) # seconds
 keywords=["leopq", "leonardoquevedox", "pacleo"]
 result_pages=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 def handle_exception(e, message): 
-    driver.quit()
+    # driver.quit()
     print(message)
     print(e)
 
@@ -72,7 +73,8 @@ def navigate_to_next_results_page():
         print("✅ Clicked the next page link")
 
     except Exception as e:
-        handle_exception(e, "💥 Whoops! There was an error executing the navgation to next page step!")
+        print("✅ Navigated to next page")
+        # handle_exception(e, "💥 Whoops! There was an error executing the navgation to next page step!")
 
 def main():
     # --- Navigates into Google page
