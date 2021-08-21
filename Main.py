@@ -45,21 +45,9 @@ def type_search_keyword():
 def open_links_on_new_tabs():
     try:
         # --- Looks for link element
-        link_element = driver.find_element_by_css_selector("a[href*=a]")
-
-        # --- Retrieves URL from element
-        link_url = link_element.get_attribute('href')
-        print(link_url)
-
-    except Exception as e:
-        handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
-
-def navigate_to_next_results_page():
-    try:
-        # --- Looks for link element
         link_elements = driver.find_elements_by_css_selector("a[href*=a]")
 
-        for link_element in link_elements
+        for link_element in link_elements:
             # --- Retrieves URL from element
             link_url = link_element.get_attribute('href')
 
@@ -67,6 +55,14 @@ def navigate_to_next_results_page():
         
         # --- Waits for 5 seconds
         time.sleep(5)
+
+    except Exception as e:
+        handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
+
+def navigate_to_next_results_page():
+    try:
+        print("Finding ")
+
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
 
