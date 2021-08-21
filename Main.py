@@ -54,6 +54,18 @@ def open_links_on_new_tabs():
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
 
+def navigate_to_next_results_page():
+    try:
+        # --- Looks for link element
+        link_element = driver.find_element_by_css_selector("a[href*=a]")
+        # --- Retrieves URL from element
+        link_url = link_element.get_attribute('href')
+        print(link_url)
+        # --- Waits for 5 seconds
+        time.sleep(5)
+    except Exception as e:
+        handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
+
 def main():
     # --- Navigates into Google page
     navigate_to_google()
@@ -63,5 +75,9 @@ def main():
     time.sleep(2)
     # --- Open expected links
     open_links_on_new_tabs()
+    # --- Waits for 2 seconds
+    time.sleep(2)
+    # --- Switch to next results page
+    navigate_to_next_results_page()
 
 main()
