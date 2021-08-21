@@ -62,9 +62,6 @@ def open_links_on_new_tabs():
                 if keyword in link_url:
                     print(link_url)
 
-        # --- Waits for 5 seconds
-        time.sleep(5)
-
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
 
