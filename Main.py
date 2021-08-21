@@ -24,15 +24,15 @@ def type_search_keyword():
 
         # --- Retrieves the search input
         search_input = driver.find_element_by_css_selector('input[type="text"]')
-        print("Found the search input...")
+        print("✅ Found the search input...")
 
         # --- Types search term into the search input
         search_input.send_keys(search_term)
-        print("Filled it with the search term...")
+        print("✅ Filled it with the search term...")
 
         # --- Submits the search form
         search_input.send_keys(Keys.RETURN)
-        print("Submitted the search form.")
+        print("✅ Submitted the search form.")
 
     except Exception as e:
         print("💥 Whoops! There was an error executing the search step!")
