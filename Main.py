@@ -55,7 +55,7 @@ def open_links_on_new_tabs():
             # --- Checks it agaisn't every keyword
             for keyword in keywords: 
                 # --- In case the URL has the keywords
-                if link_url:
+                if keyword in link_url:
                     print(link_url)
 
         # --- Waits for 5 seconds
