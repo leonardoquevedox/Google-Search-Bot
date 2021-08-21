@@ -47,10 +47,12 @@ def open_links_on_new_tabs():
         # --- Looks for link element
         link_elements = driver.find_elements_by_css_selector("a[href*=a]")
 
+        # --- For every link element, do
         for link_element in link_elements:
             # --- Retrieves URL from element
             link_url = link_element.get_attribute('href')
 
+            # --- Checks it agaisn't every keyword
             for keyword in keywords: 
                 # --- In case the URL has the keywords
                 if link_url:
