@@ -71,7 +71,7 @@ def open_links_on_new_tabs():
 def navigate_to_next_results_page():
     try:
         next_page_link = driver.find_element_by_css_selector("#pnnext")
-        print("Finding next page link")
+        print("✅ Found next page link")
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
