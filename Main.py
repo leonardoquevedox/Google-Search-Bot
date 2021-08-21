@@ -54,8 +54,10 @@ def main():
     # --- Types search keyword
     type_search_keyword()
     # --- Waits for 5 seconds
-    time.sleep(5)
+    time.sleep(10)
     # --- Open expected links
     open_links_on_new_tabs()
+    # --- Closes the browser windows
+    driver.quit()
 
 main()
