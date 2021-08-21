@@ -12,6 +12,7 @@ import os
 # Initializes Gecko driver
 driver = webdriver.Firefox()
 keywords=["leopq", "leonardoquevedox", "pacleo"]
+result_pages=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 def handle_exception(e, message): 
     driver.quit()
@@ -82,12 +83,12 @@ def main():
     type_search_keyword()
     # --- Waits for 2 seconds
     time.sleep(2)
-    # --- Open expected links
-    open_links_on_new_tabs()
-    # --- Waits for 2 seconds
-    time.sleep(2)
-    # --- Switch to next results page
-    navigate_to_next_results_page()
-    driver.quit()
+    for result_page in result_pages:
+        # --- Open expected links
+        open_links_on_new_tabs()
+        # --- Waits for 2 seconds
+        time.sleep(2)
+        # --- Switch to next results page
+        navigate_to_next_results_page()
 
 main()
