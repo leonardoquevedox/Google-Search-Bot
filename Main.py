@@ -50,11 +50,11 @@ def open_links_on_new_tabs():
             # --- Looks for link elements
             keyword_links = driver.find_elements_by_css_selector("a[href*={}]".format(keyword))
             # --- Transform them into URLs
-            # link_urls = [link.get_attribute('href') for link in keyword_links]
+            link_urls = [link.get_attribute('href') for link in keyword_links]
             # print(link_urls)
 
             # --- For every link URL, do
-            for link_url in keyword_links:
+            for link_url in link_urls:
                 print("\n")
                 print("✅ Found link: ", link_url)
 
