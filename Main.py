@@ -58,10 +58,10 @@ def open_links_on_new_tabs():
 
             # --- Checks it agaisn't every keyword
             for keyword in keywords: 
-                print("Checking for {} on {}".format(keyword, link_url))
+                # print("Checking for {} on {}".format(keyword, link_url))
                 # --- In case the URL has the keywords
                 if keyword in link_url:
-                    print(link_url)
+                    print("✅ Found URL:", link_url)
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
@@ -83,6 +83,8 @@ def main():
     type_search_keyword()
     # --- Waits for 2 seconds
     time.sleep(2)
+
+    # For every result page, do:
     for result_page in result_pages:
         # --- Open expected links
         open_links_on_new_tabs()
