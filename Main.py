@@ -55,7 +55,7 @@ def open_links_on_new_tabs():
 
             # --- For every link URL, do
             for link_url in link_urls:
-            print("✅ Found link: ", link_url)
+                print("✅ Found link: ", link_url)
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
