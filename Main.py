@@ -52,12 +52,12 @@ def open_links_on_new_tabs():
 
         # --- For every link URL, do
         for link_url in link_urls:
-            # print("\n")
             # print("✅ Found link: ", link_url)
 
             # --- Checks it agaisn't every keyword
             for keyword in keywords: 
-                # print("Checking for {} on {}".format(keyword, link_url))
+                # print("✅ Checking for {} on {}".format(keyword, link_url))
+                
                 # --- In case the URL has the keywords
                 if keyword in link_url:
                     print("✅ Found URL:", link_url)
