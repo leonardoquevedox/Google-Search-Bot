@@ -51,9 +51,13 @@ def open_links_on_new_tabs():
         for link_element in link_elements:
             # --- Retrieves URL from element
             link_url = link_element.get_attribute('href')
+            print("\n")
+
+            # print("✅ Found link: ", link_url)
 
             # --- Checks it agaisn't every keyword
             for keyword in keywords: 
+                print("Checking for {} on {}".format(keyword, link_url))
                 # --- In case the URL has the keywords
                 if keyword in link_url:
                     print(link_url)
@@ -66,6 +70,7 @@ def open_links_on_new_tabs():
 
 def navigate_to_next_results_page():
     try:
+        next_page_link = driver.find_element_by_css_selector("#pnnext")
         print("Finding next page link")
 
     except Exception as e:
@@ -84,5 +89,6 @@ def main():
     time.sleep(2)
     # --- Switch to next results page
     navigate_to_next_results_page()
+    driver.quit()
 
 main()
