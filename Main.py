@@ -40,10 +40,13 @@ def type_search_keyword():
 
 def open_links_on_new_tabs():
     try:
-        # --- Looks for provided links
-        link = driver.find_element_by_css_selector("//a[src*='leopq']")
-        # --- Link 
-        print(link)
+        # --- Looks for link element
+        link_element = driver.find_element_by_css_selector("a[href*=leopq]")
+        # --- Retrieves URL from element
+        link_url = link_element.get_attribute('href')
+        print(link_url)
+        # --- Waits for 10 seconds
+        time.sleep(5)
     except Exception as e:
         print("💥 Whoops! There was an error executing the link opening step!")
         print(e)
