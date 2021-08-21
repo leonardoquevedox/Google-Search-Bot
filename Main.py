@@ -50,7 +50,7 @@ def open_links_on_new_tabs():
         # --- Transform them into URLs
         hrefs = [link.get_attribute('href') for link in links]
 
-        # --- For every link element, do
+        # --- For every link URL, do
         for href in hrefs:
             # print("\n")
             # print("✅ Found link: ", link_url)
