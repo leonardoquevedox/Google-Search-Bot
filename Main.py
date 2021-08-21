@@ -54,7 +54,7 @@ def open_links_on_new_tabs():
             # print(link_urls)
 
             # --- For every link URL, do
-            for link_url in link_urls:
+            for link_url in keyword_links:
                 print("\n")
                 print("✅ Found link: ", link_url)
 
