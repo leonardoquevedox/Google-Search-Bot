@@ -48,10 +48,10 @@ def open_links_on_new_tabs():
         # --- Looks for link elements
         links = driver.find_elements_by_css_selector("a[href*=a]")
         # --- Transform them into URLs
-        hrefs = [link.get_attribute('href') for link in links]
+        link_urls = [link.get_attribute('href') for link in links]
 
         # --- For every link URL, do
-        for href in hrefs:
+        for link_url in link_urls:
             # print("\n")
             # print("✅ Found link: ", link_url)
 
@@ -59,8 +59,8 @@ def open_links_on_new_tabs():
             for keyword in keywords: 
                 # print("Checking for {} on {}".format(keyword, link_url))
                 # --- In case the URL has the keywords
-                if keyword in href:
-                    print("✅ Found URL:", link_href)
+                if keyword in link_url:
+                    print("✅ Found URL:", link_url)
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
