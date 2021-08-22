@@ -60,6 +60,7 @@ def open_links_on_new_tabs():
                 print("\n")
                 print("✅ Found link: ", link_url)
                 driver.execute_script("window.open('{}','_blank')".format(link_url))
+                
         # --- Switches back to main tab
         driver.switch_to_window(main_tab)
 
