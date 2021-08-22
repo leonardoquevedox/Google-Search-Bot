@@ -45,8 +45,9 @@ def type_search_keyword():
         handle_exception(e, "💥 Whoops! There was an error executing the search step!")
 
 def open_links_on_new_tabs():
-    main_tab = dirver.current_window_handle
     try:
+        # --- Retrieves main tab from driver
+        main_tab = driver.current_window_handle
         for keyword in keywords: 
             # --- Looks for link elements
             keyword_links = driver.find_elements_by_css_selector("a[href*={}]".format(keyword))
@@ -59,8 +60,8 @@ def open_links_on_new_tabs():
                 print("\n")
                 print("✅ Found link: ", link_url)
                 driver.execute_script("window.open('{}','_blank')".format(link_url))
-                driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + '1')
-    dirver.switch_to_window(main_tab)
+        # --- Switches back to main tab
+        driver.switch_to_window(main_tab)
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
