@@ -12,7 +12,7 @@ import os
 # Initializes Gecko driver
 driver = webdriver.Firefox()
 driver.implicitly_wait(5) # seconds
-keywords=["leopq", "leonardoquevedox", "pacleo", "leonardoquevedo", "trincas"]
+keywords=["leopq", "leonardoquevedox", "pacleo", "leonardoquevedo", "trinca"]
 result_pages=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 def handle_exception(e, message): 
