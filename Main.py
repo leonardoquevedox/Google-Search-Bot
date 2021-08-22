@@ -12,7 +12,7 @@ import os
 # Initializes Gecko driver
 driver = webdriver.Firefox()
 driver.implicitly_wait(5) # seconds
-keywords=["leopq", "leonardoquevedox", "pacleo"]
+keywords=["leopq", "leonardoquevedox", "pacleo", "leonardoquevedo", "trincas"]
 result_pages=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 def handle_exception(e, message): 
@@ -27,7 +27,7 @@ def navigate_to_google():
 def type_search_keyword():
     try:
         # --- Declares script variables
-        search_term="Leonardo Quevedo"
+        search_term="Leonardo Quevedo leonardoquevedox"
 
         # --- Retrieves the search input
         search_input = driver.find_element_by_css_selector('input[type="text"]')
