@@ -57,6 +57,8 @@ def open_links_on_new_tabs():
             for link_url in link_urls:
                 print("\n")
                 print("✅ Found link: ", link_url)
+                driver.execute_script("window.open('{}','_blank')".format(link_url))
+                driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.NUMPAD1)
 
     except Exception as e:
         handle_exception(e, "💥 Whoops! There was an error executing the link opening step!")
