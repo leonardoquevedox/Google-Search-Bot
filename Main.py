@@ -85,8 +85,6 @@ def main():
     for result_page in result_pages:
         # --- Open expected links
         open_links_on_new_tabs()
-        # --- Waits for 2 seconds
-        time.sleep(5)
         # --- Switch to next results page
         navigate_to_next_results_page()
         # --- Prints separator line
