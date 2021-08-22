@@ -12,7 +12,8 @@ import os
 # Initializes Gecko driver
 driver = webdriver.Firefox()
 driver.implicitly_wait(5) # seconds
-keywords=["leopq", "leonardoquevedox", "pacleo", "leonardoquevedo", "trinca"]
+keywords=["Leonardo Quevedo", "leopq", "leonardoquevedox", "pacleo", "leonardoquevedo", "trinca"]
+usernames=["leopq", "leonardoquevedox", "pacleo", "leonardoquevedo", "trinca"]
 result_pages=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 def handle_exception(e, message): 
@@ -24,17 +25,14 @@ def navigate_to_google():
     # Navigates into google main page
     driver.get('https://google.com')
 
-def type_search_keyword():
+def type_search_keyword(keyword):
     try:
-        # --- Declares script variables
-        search_term="Leonardo Quevedo leonardoquevedox"
-
         # --- Retrieves the search input
         search_input = driver.find_element_by_css_selector('input[type="text"]')
         print("✅ Found the search input...")
 
         # --- Types search term into the search input
-        search_input.send_keys(search_term)
+        search_input.send_keys(keyword)
         print("✅ Filled it with the search term...")
 
         # --- Submits the search form
@@ -48,11 +46,11 @@ def open_links_on_new_tabs():
     try:
         # --- Retrieves main tab from driver
         main_tab = driver.current_window_handle
-        for keyword in keywords: 
+        for username in usernames: 
             # --- Looks for link elements
-            keyword_links = driver.find_elements_by_css_selector("a[href*={}]".format(keyword))
+            link_matches = driver.find_elements_by_css_selector("a[href*={}]".format(username))
             # --- Transform them into URLs
-            link_urls = [link.get_attribute('href') for link in keyword_links]
+            link_urls = [link.get_attribute('href') for link in link_matches]
             # print(link_urls)
 
             # --- For every link URL, do
@@ -77,20 +75,22 @@ def navigate_to_next_results_page():
         # handle_exception(e, "💥 Whoops! There was an error executing the navgation to next page step!")
 
 def main():
-    # --- Navigates into Google page
-    navigate_to_google()
-    # --- Types search keyword
-    type_search_keyword()
-    # --- Waits for 2 seconds
-    time.sleep(2)
+    # For every keyword, do
+    for keyword in keywords: 
+        # --- Navigates into Google page
+        navigate_to_google()
+        # --- Types search keyword
+        type_search_keyword(keyword)
+        # --- Waits for 2 seconds
+        time.sleep(2)
 
-    # For every result page, do:
-    for result_page in result_pages:
-        # --- Open expected links
-        open_links_on_new_tabs()
-        # --- Switch to next results page
-        navigate_to_next_results_page()
-        # --- Prints separator line
-        # print("\n")
+        # For every result page, do:
+        for result_page in result_pages:
+            # --- Open expected links
+            open_links_on_new_tabs()
+            # --- Switch to next results page
+            navigate_to_next_results_page()
+            # --- Prints separator line
+            # print("\n")
 
 main()
